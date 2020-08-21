@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean id="reallyBlankDisc" class="com.kittycoder.soundsystem.properties.BlankDisc"/>-->
+
+    <bean id="blankDisc" class="com.kittycoder.soundsystem.properties.BlankDisc">
+        <property name="title" value="Sgt. Pepper's Lonely Hearts Club Band"/>
+        <property name="artist" value="The Beatles"/>
+        <property name="tracks">
+            <list>
+                <value>111</value>
+                <value>222</value>
+                <value>333</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="cdPlayer" class="com.kittycoder.soundsystem.properties.CDPlayer">
+        <property name="compactDisc" ref="blankDisc"/>
+    </bean>
+</beans>

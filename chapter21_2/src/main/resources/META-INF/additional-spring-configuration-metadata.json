@@ -1,0 +1,48 @@
+{
+  "groups": [
+    {
+      "name": "kittycoder.app",
+      "type": "com.kittycoder.properties.AppProperties",
+      "sourceType": "com.kittycoder.properties.AppProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "kittycoder.app.mail.host",
+      "type": "java.lang.String",
+      "sourceType": "com.kittycoder.po.MailProperties",
+      "description": "邮件服务器地址"
+    },
+    {
+      "name": "kittycoder.app.mail.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.kittycoder.po.MailProperties",
+      "description": "邮件服务器端口"
+    },
+    {
+      "name": "kittycoder.app.mail.from",
+      "type": "java.lang.String",
+      "sourceType": "com.kittycoder.po.MailProperties",
+      "description": "发件人"
+    },
+    {
+      "name": "kittycoder.app.mail.to",
+      "type": "java.lang.String",
+      "sourceType": "com.kittycoder.po.MailProperties",
+      "description": "收件人"
+    },
+    {
+      "name": "kittycoder.settings.redis-host",
+      "type": "java.lang.String",
+      "sourceType": "com.kittycoder.properties.AppSettings",
+      "description": "redis服务器地址"
+    },
+    {
+      "name": "kittycoder.settings.redis-port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.kittycoder.properties.AppSettings",
+      "description": "redis服务器端口",
+      "defaultValue": 6379
+    }
+  ]
+}

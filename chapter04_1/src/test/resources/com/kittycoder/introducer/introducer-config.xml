@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:aspectj-autoproxy/>
+    <bean id="performance" class="com.kittycoder.concert.MusicPerformance"/>
+    <!-- 写法一：
+    <aop:config>
+        <aop:aspect>
+            <aop:declare-parents types-matching="com.kittycoder.concert.Performance+"
+            implement-interface="com.kittycoder.introducer.Encoreable"
+            default-impl="com.kittycoder.introducer.DefaultEncoreableImpl"/>
+        </aop:aspect>
+    </aop:config> -->
+
+    <!-- 写法二：（委托给spring里的bean来实现） -->
+    <bean id="encoreableDelegate" class="com.kittycoder.introducer.DefaultEncoreableImpl"/>
+    <aop:config>
+        <aop:aspect>
+            <aop:declare-parents types-matching="com.kittycoder.concert.Performance+"
+                                 implement-interface="com.kittycoder.introducer.Encoreable"
+                                 delegate-ref="encoreableDelegate"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

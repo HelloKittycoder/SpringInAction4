@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="blankDisc1" class="com.kittycoder.soundsystem.collections.BlankDisc">
+        <constructor-arg value="Band1"/>
+        <constructor-arg value="111"/>
+    </bean>
+
+    <bean id="blankDisc2" class="com.kittycoder.soundsystem.collections.BlankDisc">
+        <constructor-arg value="Band2"/>
+        <constructor-arg value="222"/>
+    </bean>
+
+    <bean id="compactDisc" class="com.kittycoder.soundsystem.collections.BlankDisc">
+        <constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band"/>
+        <constructor-arg value="The Beatles"/>
+        <constructor-arg>
+            <list>
+                <value>111</value>
+                <value>111</value>
+                <value>222</value>
+                <value>333</value>
+                <value>111</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg>
+            <list>
+                <ref bean="blankDisc1"/>
+                <ref bean="blankDisc2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="cdPlayer" class="com.kittycoder.soundsystem.CDPlayer">
+        <constructor-arg ref="compactDisc"/>
+    </bean>
+</beans>

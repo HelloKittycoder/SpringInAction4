@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:jms="http://www.springframework.org/schema/jms"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd">
+
+
+    <bean id="connectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
+        <!-- 解决报错：more information on how to configure trusted classes.
+        设置可信包，属于可信包下的类能够被加载并转换成该类；
+        这里为简便起见，将所有的包都设置为可信 -->
+        <property name="trustAllPackages" value="true"/>
+    </bean>
+
+    <!-- <bean id="queue" class="org.apache.activemq.command.ActiveMQQueue" c:_="spitter.queue"/> -->
+
+    <!--<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate" c:_-ref="connectionFactory"
+          p:defaultDestinationName="spittle.alert.queue"/>-->
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate" c:_0-ref="connectionFactory"
+          p:defaultDestinationName="spittle.alert.queue"/>
+
+    <!--<bean id="alertService" class="com.kittycoder.alert.AlertServiceImpl" c:_-ref="jmsTemplate"/>-->
+    <bean id="alertService" class="com.kittycoder.alert.AlertServiceImpl" c:_0-ref="jmsTemplate"/>
+
+    <bean id="spittleAlertHandler" class="com.kittycoder.alert.SpittleAlertHandler"/>
+
+    <!-- 异步接收消息，这里connection-factory属性可以不写，因为该属性的默认值就是connectionFactory -->
+    <jms:listener-container connection-factory="connectionFactory">
+        <jms:listener destination="spittle.alert.queue"
+             ref="spittleAlertHandler" method="handleSpittleAlert"/>
+    </jms:listener-container>
+</beans>
