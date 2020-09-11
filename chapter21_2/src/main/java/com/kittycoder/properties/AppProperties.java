@@ -2,7 +2,7 @@ package com.kittycoder.properties;
 
 import com.kittycoder.po.MailProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
  * Created by shucheng on 2020/8/17 17:59
@@ -10,6 +10,10 @@ import org.springframework.stereotype.Component;
 // @Component
 @ConfigurationProperties("kittycoder.app")
 public class AppProperties {
+
+    // 不加@NestedConfigurationProperty时，spring-configuration-metadata.json默认不会自动识别嵌套属性，
+    // 需要自己另外创建additional-spring-configuration-metadata.json
+    @NestedConfigurationProperty
     private MailProperties mail = new MailProperties();
 
     public MailProperties getMail() {
