@@ -7,6 +7,8 @@
 	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 	   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <context:component-scan base-package="com.kittycoder.concert"/>
+
     <bean id="criticismEngine" class="com.kittycoder.aspect.CriticismEngineImpl">
         <property name="criticismPool">
             <list>
@@ -16,5 +18,9 @@
                 <value>A must see show!</value>
             </list>
         </property>
+    </bean>
+
+    <bean class="com.kittycoder.aspect.CriticAspect" factory-method="aspectOf">
+        <property name="criticismEngine" ref="criticismEngine"/>
     </bean>
 </beans>

@@ -9,6 +9,7 @@ public aspect CriticAspect {
 
     pointcut performance() : execution(* com.kittycoder.concert.Performance.perform(..));
 
+    // TODO：下面的代码尝试用ajc编译，但始终报语法错误
     /*afterReturning() : performance() {
         // System.out.println(criticismEngine.getCriticism());
         System.out.println("111");
