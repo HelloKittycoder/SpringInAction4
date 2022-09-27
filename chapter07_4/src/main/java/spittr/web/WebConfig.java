@@ -81,9 +81,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
     public MultipartResolver multipartResolver() throws IOException {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-        multipartResolver.setUploadTempDir(new FileSystemResource("D:/tmp/spittr/")); // 上传存放的临时目录（这个设置貌似没有用）
-        multipartResolver.setMaxUploadSize(2097152); // 上传文件的最大容量 2M
+        multipartResolver.setUploadTempDir(new FileSystemResource("D:/tmp/spittr/")); // 上传存放的临时目录
+        /**
+         * 上传文件的最大容量（单位：字节） 2M
+         * 整个multipart请求的最大容量（单位：字节） 2M
+         * CommonsMultipartResolver无法对这两个分别进行设置，StandardServletMultipartResolver可以
+         */
+        multipartResolver.setMaxUploadSize(2097152);
         multipartResolver.setMaxInMemorySize(0); // 内存中最多放多少数据，超出的话，直接写到临时目录中
-        return new CommonsMultipartResolver();
+        return multipartResolver;
     }
 }
