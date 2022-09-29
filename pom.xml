@@ -80,6 +80,7 @@
     <log4j.version>1.2.14</log4j.version>
     <slf4j.version>1.7.5</slf4j.version>
     <thymeleaf.version>3.0.8.RELEASE</thymeleaf.version>
+    <velocity.version>1.7</velocity.version>
     <spring-security.version>3.2.0.RELEASE</spring-security.version>
     <commons-dbcp2.version>2.5.0</commons-dbcp2.version>
     <h2.version>1.4.196</h2.version>
@@ -275,6 +276,13 @@
         <groupId>org.thymeleaf</groupId>
         <artifactId>thymeleaf-spring4</artifactId>
         <version>${thymeleaf.version}</version>
+      </dependency>
+
+      <!-- velocity -->
+      <dependency>
+        <groupId>org.apache.velocity</groupId>
+        <artifactId>velocity</artifactId>
+        <version>${velocity.version}</version>
       </dependency>
 
       <dependency>

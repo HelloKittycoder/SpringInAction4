@@ -24,7 +24,7 @@ public class MailConfig {
      * SpitterMailServiceImpl中用到了
      */
     @Bean
-    public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
+    public PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
