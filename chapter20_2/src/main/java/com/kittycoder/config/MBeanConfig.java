@@ -3,14 +3,13 @@ package com.kittycoder.config;
 import com.kittycoder.controller.SpittleController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableMBeanExport;
 import org.springframework.jmx.export.MBeanExporter;
 import org.springframework.jmx.export.assembler.InterfaceBasedMBeanInfoAssembler;
 import org.springframework.jmx.export.assembler.MBeanInfoAssembler;
 import org.springframework.jmx.export.assembler.MethodExclusionMBeanInfoAssembler;
 import org.springframework.jmx.export.assembler.MethodNameBasedMBeanInfoAssembler;
-import org.springframework.jmx.support.MBeanServerFactoryBean;
 
-import javax.management.MBeanServer;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +17,7 @@ import java.util.Map;
  * Created by shucheng on 2020/7/31 23:45
  */
 @Configuration
+@EnableMBeanExport
 public class MBeanConfig {
 
     /**
@@ -64,17 +64,4 @@ public class MBeanConfig {
         exporter.setAssembler(assembler);
         return exporter;
     }*/
-
-    @Bean
-    public MBeanServerFactoryBean mbeanServer() {
-        MBeanServerFactoryBean factoryBean = new MBeanServerFactoryBean();
-        return factoryBean;
-    }
-
-    @Bean
-    public MBeanExporter mBeanExporter(MBeanServer mBeanServer) {
-        MBeanExporter exporter = new MBeanExporter();
-        exporter.setServer(mBeanServer);
-        return exporter;
-    }
 }

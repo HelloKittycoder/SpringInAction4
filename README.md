@@ -90,7 +90,7 @@ chapter19_1 使用模板生成Email（后续有时间再弄）
 - **第20章** [使用JMX管理Spring Bean]()  
 chapter20 将Spring bean导出为MBean（MBeanExporter），通过名称暴露方法（MBeanInfoAssembler）  
 chapter20_1 使用接口定义MBean的操作和属性（InterfaceBasedMBeanInfoAssembler）  
-chapter20_2 使用注解驱动的MBean（这个没弄好，后续有时间再弄）  
+chapter20_2 使用注解驱动的MBean  
 - **第21章** [借助Spring Boot简化Spring开发]()  
 chapter21 使用Spring Boot构建应用  
 chapter21_1 组合使用Groovy与Spring Boot CLI（还不会用，后续有时间再弄）  
