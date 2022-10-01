@@ -55,6 +55,7 @@
     <module>chapter20_1</module>
     <module>chapter20_2</module>
     <module>chapter20_3</module>
+    <module>chapter20_4</module>
   </modules>
 
   <name>springinaction</name>

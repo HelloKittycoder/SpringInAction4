@@ -92,6 +92,7 @@ chapter20 将Spring bean导出为MBean（MBeanExporter），通过名称暴露�
 chapter20_1 使用接口定义MBean的操作和属性（InterfaceBasedMBeanInfoAssembler）  
 chapter20_2 使用注解驱动的MBean  
 chapter20_3 处理MBean冲突  
+chapter20_4 远程MBean  
 - **第21章** [借助Spring Boot简化Spring开发]()  
 chapter21 使用Spring Boot构建应用  
 chapter21_1 组合使用Groovy与Spring Boot CLI（还不会用，后续有时间再弄）  
