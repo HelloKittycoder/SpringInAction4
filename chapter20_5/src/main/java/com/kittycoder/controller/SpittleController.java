@@ -1,6 +1,5 @@
 package com.kittycoder.controller;
 
-import com.kittycoder.listener.PagingNotificationListener;
 import com.kittycoder.publisher.SpittleNotifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jmx.export.MBeanExporter;
